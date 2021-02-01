@@ -11,9 +11,6 @@ import (
 var (
 	ErrTooManyArgs = errors.New("there are too many arguments")
 	ErrNotEnoughArgs = errors.New("there are not enough arguments")
-	ErrInvalidValues = errors.New("invalid values")
-	ErrNegativeValues = errors.New("one or more values are negative")
-	ErrNLessThan2 = errors.New("n must be greater than 2")
 	ErrEmptyFile = errors.New("the file is empty")
 	ErrSyntax = errors.New("text contains syntax error")
 	ErrInvalidP = errors.New("'p' must be positive")
