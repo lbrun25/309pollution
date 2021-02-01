@@ -16,7 +16,7 @@ var (
 	ErrNLessThan2 = errors.New("n must be greater than 2")
 	ErrEmptyFile = errors.New("the file is empty")
 	ErrSyntax = errors.New("text contains syntax error")
-	ErrInvalidP = errors.New("'p' must be positive and must be less than 100")
+	ErrInvalidP = errors.New("'p' must be positive")
 	ErrInvalidN = errors.New("'n' must be a positive integer")
 	ErrInvalidX = errors.New("'x' must be a decimal greater or equal than 0 and inferior or equal to n - 1")
 	ErrInvalidY = errors.New("'y' must be a decimal greater or equal than 0 and inferior or equal to n - 1")
@@ -56,10 +56,10 @@ func retrievePoints(lines []string) ([]Point, error) {
 			}
 			res[i] = integer
 		}
-		if res[2] < 0 || res[2] > 100 {
+		if res[2] < 0 {
 			return nil, ErrInvalidP
 		}
-			points = append(points, Point{
+		points = append(points, Point{
 			X: int64(res[0]),
 			Y:  int64(res[1]),
 			P:  int64(res[2]),
