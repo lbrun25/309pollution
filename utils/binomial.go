@@ -71,3 +71,42 @@ func BernsteinPolynomial(n int64, k int64, p float64) (float64, error) {
 	convertedRes, _ := res.Float64()
 	return convertedRes, nil
 }
+
+// Or you can use this second simpler solution to compute Bernstein polynomial without using math/big
+
+//func Factorial(n int64) (int64, error) {
+//	if n >= 100 {
+//		return 0, ErrFactorialNumber
+//	}
+//	if n > 0 {
+//		f, err := Factorial(n - 1); if err != nil {
+//			return 0, err
+//		}
+//		result := n * f
+//		return result, nil
+//	}
+//	return 1, nil
+//}
+//
+//func BinomialCoefficient(n int64, i int64) (float64, error) {
+//	fN, err := Factorial(n); if err != nil {
+//		return 0, err
+//	}
+//	fI, err := Factorial(i); if err != nil {
+//		return 0, err
+//	}
+//	fNi, err := Factorial(n - i); if err != nil {
+//		return 0, err
+//	}
+//	return float64(fN / (fI * fNi)), nil
+//}
+//
+//func BernsteinPolynomial(n int64, i int64, u float64) (float64, error) {
+//	a, err := BinomialCoefficient(n, i); if err != nil {
+//		return 0, err
+//	}
+//	b := math.Pow(u, float64(i))
+//	c := math.Pow(1 - u, float64(n - i))
+//	res := a * b * c
+//	return res, nil
+//}
