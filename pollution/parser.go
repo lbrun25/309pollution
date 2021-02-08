@@ -14,7 +14,7 @@ var (
 	ErrEmptyFile = errors.New("the file is empty")
 	ErrSyntax = errors.New("text contains syntax error")
 	ErrInvalidP = errors.New("'p' must be positive")
-	ErrInvalidN = errors.New("'n' must be a positive integer")
+	ErrInvalidN = errors.New("'n' must be a positive integer and greater than 2")
 	ErrInvalidX = errors.New("'x' must be a decimal greater or equal than 0 and inferior or equal to n - 1")
 	ErrInvalidY = errors.New("'y' must be a decimal greater or equal than 0 and inferior or equal to n - 1")
 )
@@ -79,7 +79,8 @@ func CheckArgs() (err error) {
 	}
 
 	// Retrieve args
-	n, err := strconv.Atoi(argsWithoutProg[0]); if err != nil {
+	n, err := strconv.Atoi(argsWithoutProg[0])
+	if err != nil || n < 3 {
 		return ErrInvalidN
 	}
 	x, err := strconv.ParseFloat(argsWithoutProg[2], 32); if err != nil {
