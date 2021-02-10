@@ -83,12 +83,17 @@ func CheckArgs() (err error) {
 	if err != nil || n < 3 {
 		return ErrInvalidN
 	}
-	x, err := strconv.ParseFloat(argsWithoutProg[2], 32); if err != nil {
+
+	x, err := strconv.ParseFloat(argsWithoutProg[2], 32)
+	if err != nil || x < 0 || x > float64(n) - 1  {
 		return ErrInvalidX
 	}
-	y, err := strconv.ParseFloat(argsWithoutProg[3], 32); if err != nil {
+
+	y, err := strconv.ParseFloat(argsWithoutProg[3], 32)
+	if err != nil || y < 0 || x > float64(n) - 1 {
 		return ErrInvalidY
 	}
+
 	N = int64(n)
 	X = x
 	Y = y
